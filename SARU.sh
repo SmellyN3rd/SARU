@@ -10,7 +10,8 @@ echo
 echo enter password for the user $username
 passwd $username 
 
-pacman -S --noconfirm xfce4 xfce4-goodies terminator lightdm lightdm-gtk-greeter pavucontrol fish doas xfconf
+pacman -Syuu
+pacman -S --noconfirm xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
