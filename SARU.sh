@@ -14,7 +14,7 @@ systemctl enable lightdm
 echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
 
-doas -u $username git clone https://aur.archlinux.org/yay.git  && cd yay && makepkg -si
+sudo -u $username cd /tmp && git clone https://aur.archlinux.org/yay.git  && cd yay && makepkg -si
 
 chsh -s /bin/fish $username
 echo set fish_greeting >> /home/$username/.config/fish/config.fish
