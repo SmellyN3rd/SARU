@@ -13,8 +13,6 @@ passwd $username
 pacman -Syuu
 pacman -S --noconfirm xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator git firefox
 systemctl enable lightdm
-systemctl status lightdm
-sleep 10
 
 echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
