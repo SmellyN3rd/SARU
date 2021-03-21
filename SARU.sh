@@ -29,7 +29,4 @@ echo set fish_greeting >> /home/$username/.config/fish/config.fish
 
 doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
 
-doas -u $username xfconf-query -c xsettings -p /Net/ThemeName -s "Equilux"
-doas -u $username xfconf-query -c xsettings -p /Net/IconThemeName -S "Paper"
-
 
