@@ -46,6 +46,6 @@ cp xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 cp xfce4-clipman-actions.xml /home/$username/.config/xfce4/panel
 cp helpers.rc /home/$username/.config/xfce4/
 cp 00-keyboard.conf /etc/X11/xorg.conf.d
-doas -u $username cp -r mozilla/* /home/$username/.mozilla
+sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 cp default /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 reboot
