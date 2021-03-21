@@ -8,7 +8,7 @@ useradd -m -g users -G wheel,storage,power -s /bin/bash $username
 echo enter password for the user $username
 passwd $username 
 
-pacman -S  --noconfirm xfce4 xfce4-goodies terminator lightdm lightdm-gtk-greeter pavucontrol fish doas
+pacman -S  --noconfirm xfce4 xfce4-goodies terminator lightdm lightdm-gtk-greeter pavucontrol fish doas xfconf
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -21,10 +21,10 @@ cd yay
 sudo -u $username makepkg -si --noconfirm
 
 chsh -s /bin/fish $username
-mkdir /home/$username/.config/fish 
+mkdir --parents /home/$username/.config/fish 
 echo set fish_greeting >> /home/$username/.config/fish/config.fish
 
-doas -u $username yay -S --noconfirm paper-icon-theme Equilux-theme
+doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
 
 doas -u $username xfconf-query -c xsettings -p /Net/ThemeName -s "Equilux"
 doas -u $username xfconf-query -c xsettings -p /Net/IconThemeName -S "Paper"
