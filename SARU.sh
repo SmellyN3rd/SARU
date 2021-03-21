@@ -11,7 +11,7 @@ echo enter password for the user $username
 passwd $username 
 
 pacman -Syuu
-pacman -S --noconfirm xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator
+pacman -S --noconfirm xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator git firefox
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -28,5 +28,19 @@ mkdir --parents /home/$username/.config/fish
 echo set fish_greeting >> /home/$username/.config/fish/config.fish
 
 doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
+
+cd /tmp
+git clone https://github.com/SmellyN3rd/SARU
+cd SARU/dotfiles
+cp --parents wallpaper.jpg /usr/share/backgrounds/xfce
+cp --parents config /home/$username/.config/terminator 
+cp --parents lightdm-gtk-greeter.conf /etc/lightdm
+cp --parents whiskermenu-8.rc /home/$username/.config/xfce4/panel
+cp --parents xfce4-desktop.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp --parents xsettings.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp --parents xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+
+
+
 
 
