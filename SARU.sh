@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu
 pacman -Fy
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish doas terminator git firefox alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -28,7 +28,7 @@ chsh -s /bin/fish $username
 sudo -u $username mkdir --parents /home/$username/.config/fish 
 sudo -u $username echo set fish_greeting >> /home/$username/.config/fish/config.fish
 
-doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
+doas -u $username yay -S --noconfirm equilux-theme
 
 cd /tmp
 git clone https://github.com/SmellyN3rd/SARU
