@@ -15,9 +15,10 @@ echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
 
 cd /tmp
-git clone https://aur.archlinux.org/yay.git
+curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
+sudo -u $username tar -xvf yay.tar.gz
 cd yay
-sudo -u $username makepkg -si
+sudo -u $username makepkg -si --noconfirm
 
 chsh -s /bin/fish $username
 echo set fish_greeting >> /home/$username/.config/fish/config.fish
