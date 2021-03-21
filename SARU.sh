@@ -11,6 +11,7 @@ echo enter password for the user $username
 passwd $username 
 
 pacman -Syuu
+pacman -Fy
 pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish doas terminator git firefox alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
