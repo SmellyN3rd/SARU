@@ -42,4 +42,8 @@ mkdir --parents /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 cp xfce4-desktop.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 cp xsettings.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 cp xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp xfce4-clipman-actions.xml /home/$username/.config/xfce4/panel
+cp helpers.rc /home/$username/.config/xfce4/
+cd default
+cp * /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 reboot
