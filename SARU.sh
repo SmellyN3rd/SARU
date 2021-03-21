@@ -3,12 +3,14 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo
 read -p "enter your username: " username 
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
+echo
 echo enter password for the user $username
 passwd $username 
 
-pacman -S  --noconfirm xfce4 xfce4-goodies terminator lightdm lightdm-gtk-greeter pavucontrol fish doas xfconf
+pacman -S --noconfirm xfce4 xfce4-goodies terminator lightdm lightdm-gtk-greeter pavucontrol fish doas xfconf
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
