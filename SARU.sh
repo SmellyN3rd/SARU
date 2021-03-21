@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu
 pacman -Fy
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -46,6 +46,6 @@ cp xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 cp xfce4-clipman-actions.xml /home/$username/.config/xfce4/panel
 cp helpers.rc /home/$username/.config/xfce4/
 cp 00-keyboard.conf /etc/X11/xorg.conf.d
-cd default
-cp * /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp mozilla/* /home/$username/.mozilla
+cp default/* /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 reboot
