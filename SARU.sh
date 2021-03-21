@@ -33,6 +33,7 @@ doas -u $username yay -S --noconfirm equilux-theme
 cd /tmp
 git clone https://github.com/SmellyN3rd/SARU
 cd SARU/dotfiles
+
 cp wallpaper.jpg /usr/share/backgrounds/xfce
 mkdir /home/$username/.config/terminator
 cp config /home/$username/.config/terminator 
@@ -48,4 +49,5 @@ cp helpers.rc /home/$username/.config/xfce4/
 cp 00-keyboard.conf /etc/X11/xorg.conf.d
 sudo -u $username cp -r mozilla /home/$username/.mozilla
 cp default /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+
 reboot
