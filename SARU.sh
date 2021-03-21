@@ -32,13 +32,16 @@ doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
 cd /tmp
 git clone https://github.com/SmellyN3rd/SARU
 cd SARU/dotfiles
-cp --parents wallpaper.jpg /usr/share/backgrounds/xfce
-cp --parents config /home/$username/.config/terminator 
-cp --parents lightdm-gtk-greeter.conf /etc/lightdm
-cp --parents whiskermenu-8.rc /home/$username/.config/xfce4/panel
-cp --parents xfce4-desktop.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp --parents xsettings.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp --parents xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp wallpaper.jpg /usr/share/backgrounds/xfce
+mkdir /home/$username/.config/terminator
+cp config /home/$username/.config/terminator 
+cp lightdm-gtk-greeter.conf /etc/lightdm
+mkdir --parents /home/$username/.config/xfce4/panel
+cp whiskermenu-8.rc /home/$username/.config/xfce4/panel
+mkdir --parents /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp xfce4-desktop.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp xsettings.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+cp xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
 
 
 
