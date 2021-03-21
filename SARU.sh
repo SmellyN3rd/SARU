@@ -24,8 +24,8 @@ cd yay
 sudo -u $username makepkg -si --noconfirm
 
 chsh -s /bin/fish $username
-mkdir --parents /home/$username/.config/fish 
-echo set fish_greeting >> /home/$username/.config/fish/config.fish
+sudo -u $username mkdir --parents /home/$username/.config/fish 
+sudo -u $username echo set fish_greeting >> /home/$username/.config/fish/config.fish
 
 doas -u $username yay -S --noconfirm paper-icon-theme equilux-theme
 
