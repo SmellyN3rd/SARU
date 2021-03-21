@@ -11,7 +11,7 @@ echo enter password for the user $username
 passwd $username 
 
 pacman -Syuu
-pacman -S --noconfirm xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator git firefox
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol fish doas terminator git firefox
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
