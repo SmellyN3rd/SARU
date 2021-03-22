@@ -39,6 +39,7 @@ sudo -u $username mkdir /home/$username/.mozilla/
 
 sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
+sudo -u $username cp  .zshrc /home/$username/
 cp lightdm-gtk-greeter.conf /etc/lightdm
 
 echo 'section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
