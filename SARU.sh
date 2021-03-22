@@ -40,8 +40,8 @@ cp wallpaper.jpg /usr/share/backgrounds/xfce
 sudo -u $username mkdir /home/$username/.config/
 sudo -u $username mkdir /home/$username/.mozilla/
 
-sudo -u $username cp config/* /home/$username/.config
-sudo -u $username cp mozilla/* /home/$username/.mozilla
+sudo -u $username cp -r config/* /home/$username/.config
+sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 cp lightdm-gtk-greeter.conf /etc/lightdm
 
 echo section "InputClass" > /etc/X11/xorg.conf.d/00-keyboard.conf
