@@ -25,7 +25,8 @@ cd yay
 sudo -u $username makepkg -si --noconfirm
 
 chsh -s /bin/zsh $username
-curl -L http://install.ohmyz.sh | sh
+cd /home/$username
+curl -L http://install.ohmyz.sh | doas -u $username sh
 
 doas -u $username yay -S --noconfirm equilux-theme
 
