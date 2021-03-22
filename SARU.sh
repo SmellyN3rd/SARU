@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu
 pacman -Fy
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim fish engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -24,9 +24,8 @@ sudo -u $username tar -xvf yay.tar.gz
 cd yay
 sudo -u $username makepkg -si --noconfirm
 
-chsh -s /bin/fish $username
-sudo -u $username mkdir --parents /home/$username/.config/fish 
-sudo -u $username echo set fish_greeting >> /home/$username/.config/fish/config.fish
+chsh -s /bin/zsh $username
+curl -L http://install.ohmyz.sh | sh
 
 doas -u $username yay -S --noconfirm equilux-theme
 
