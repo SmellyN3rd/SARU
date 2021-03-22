@@ -3,6 +3,8 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+LANG=$(locale | awk -F"[_.]" '/LANG/{print tolower($2)}')
+
 echo
 read -p "enter your username: " username 
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
