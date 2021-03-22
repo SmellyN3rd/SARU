@@ -3,8 +3,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-LANG="$(locale | awk -F"[_.]" '/LANG/{print tolower($2)}')"
-
 echo
 read -p "enter your username: " username 
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
@@ -47,7 +45,7 @@ cp lightdm-gtk-greeter.conf /etc/lightdm
 echo 'section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '    Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '    MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo '    Option "XkbLayout" "\""${LANG}"\""' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '    Option "XkbLayout" "pl"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo 'EndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 
 reboot
