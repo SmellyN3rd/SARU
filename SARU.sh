@@ -44,10 +44,10 @@ sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 cp lightdm-gtk-greeter.conf /etc/lightdm
 
-echo section "InputClass" > /etc/X11/xorg.conf.d/00-keyboard.conf
+echo 'section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '    Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '    MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo '    Option "XkbLayout" "$LANG"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo EndSection >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '    Option "XkbLayout" "${LANG}"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo 'EndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 
 reboot
