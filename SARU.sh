@@ -33,23 +33,21 @@ sudo -u $username echo set fish_greeting >> /home/$username/.config/fish/config.
 doas -u $username yay -S --noconfirm equilux-theme
 
 cd /tmp
-git clone https://github.com/SmellyN3rd/SARU
-cd SARU/dotfiles
+git clone https://github.com/SmellyN3rd/dotfiles
+cd dotfiles
 
 cp wallpaper.jpg /usr/share/backgrounds/xfce
-mkdir /home/$username/.config/terminator
-cp config /home/$username/.config/terminator 
+sudo -u $username mkdir /home/$username/.config/
+sudo -u $username mkdir /home/$username/.mozilla/
+
+sudo -u $username cp config/* /home/$username/.config
+sudo -u $username cp mozilla/* /home/$username/.mozilla
 cp lightdm-gtk-greeter.conf /etc/lightdm
-mkdir --parents /home/$username/.config/xfce4/panel
-cp whiskermenu-8.rc /home/$username/.config/xfce4/panel
-mkdir --parents /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp xfce4-desktop.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp xsettings.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp xfce4-panel.xml /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
-cp xfce4-clipman-actions.xml /home/$username/.config/xfce4/panel
-cp helpers.rc /home/$username/.config/xfce4/
-cp 00-keyboard.conf /etc/X11/xorg.conf.d
-sudo -u $username cp -r mozilla /home/$username/.mozilla
-cp default /home/$username/.config/xfce4/xfconf/xfce-perchannel-xml
+
+echo section "InputClass" > /etc/X11/xorg.conf.d/00-keyboard.conf
+echo     Identifier "system-keyboard" >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo     MatchIsKeyboard "on" >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo     Option "XkbLayout" "$LANG" >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo EndSection >> /etc/X11/xorg.conf.d/00-keyboard.conf
 
 reboot
