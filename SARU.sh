@@ -37,7 +37,7 @@ echo -ne installing yay - the AUR manager... && sudo -u $username makepkg -si --
 
 echo -ne configuring the shell... && chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
-{curl -L http://install.ohmyz.sh | doas -u $username sh} &> /dev/null
+{doas -u $username curl -L http://install.ohmyz.sh | doas -u $username sh } &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null && echo done
 
 echo -ne installing the system theme... && doas -u $username yay -S --noconfirm equilux-theme &> /dev/null && pacman --noconfirm -S papirus-icon-theme &> /dev/null && echo done
