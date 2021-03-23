@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu --noconfirm
 pacman -Fy --noconfirm
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim zsh zsh-autosuggestions powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -27,6 +27,7 @@ sudo -u $username makepkg -si --noconfirm
 chsh -s /bin/zsh $username
 cd /home/$username
 curl -L http://install.ohmyz.sh | doas -u $username sh
+doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 doas -u $username yay -S --noconfirm equilux-theme
 
