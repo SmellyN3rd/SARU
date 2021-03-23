@@ -30,6 +30,9 @@ curl -L http://install.ohmyz.sh | doas -u $username sh
 
 doas -u $username yay -S --noconfirm equilux-theme
 
+LANG="$(locale | awk -F"[_.]" '/LANG/{print tolower($2)}')"
+localectl set-x11-keymap $LANG
+
 cd /tmp
 git clone https://github.com/SmellyN3rd/dotfiles
 cd dotfiles
@@ -42,6 +45,6 @@ sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
 cp lightdm-gtk-greeter.conf /etc/lightdm/
-cp 00-keyboard.conf /etc/X11/xorg.conf.d/
+#cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 
 reboot
