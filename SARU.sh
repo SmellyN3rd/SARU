@@ -27,7 +27,7 @@ sudo -u $username makepkg -si --noconfirm
 chsh -s /bin/zsh $username
 cd /home/$username
 curl -L http://install.ohmyz.sh | doas -u $username sh
-doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions
 
 doas -u $username yay -S --noconfirm equilux-theme
 
