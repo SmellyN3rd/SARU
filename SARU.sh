@@ -1,3 +1,5 @@
+clear
+
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
   exit
@@ -10,34 +12,40 @@ echo
 echo enter password for the user $username
 passwd $username 
 
-timedatectl set-ntp true
+echo -ne synchronizing time... && timedatectl set-ntp true &> /dev/null && echo done
 
-pacman -Syuu --noconfirm
-pacman -Fy --noconfirm
-pacman -S --noconfirm xorg xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter pavucontrol feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
-systemctl enable lightdm
+echo -ne updating the system... && pacman -Syuu --noconfirm &> /dev/null && echo done
+echo -ne refreshing pacman databases... && pacman -Fy --noconfirm &> /dev/null && echo done
+
+echo -ne installing the display server... && pacman -S --noconfirm xorg &> /dev/null && echo done
+echo -ne installing the desktop environment... && pacman -S --noconfirm xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter &> /dev/null && echo done
+systemctl enable lightdm &> /dev/null
+
+echo -ne installing sound utilities... && pacman -S --noconfirm alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins pavucontrol &> /dev/null && echo done
+
+echo -ne installing programs... && pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null && echo done
 
 echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
 
 cd /tmp
-curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
-sudo -u $username tar -xvf yay.tar.gz
+curl -sO https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
+sudo -u $username tar -xvf yay.tar.gz &> /dev/null
 cd yay
-sudo -u $username makepkg -si --noconfirm
+echo -ne installing yay - the AUR manager... && sudo -u $username makepkg -si --noconfirm &> /dev/null && echo done
 
 chsh -s /bin/zsh $username
 cd /home/$username
 curl -L http://install.ohmyz.sh | doas -u $username sh
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions
 
-doas -u $username yay -S --noconfirm equilux-theme
+echo -ne installing the system theme... && doas -u $username yay -S --noconfirm equilux-theme &> /dev/null && pacman --noconfirm -S papirus-icon-theme &> /dev/null && echo done
 
 LANG="$(locale | awk -F"[_.]" '/LANG/{print tolower($2)}')"
-localectl set-x11-keymap $LANG
+echo -ne setting the keymap... && localectl set-x11-keymap $LANG &> /dev/null && echo done
 
 cd /tmp
-git clone https://github.com/SmellyN3rd/dotfiles
+echo -ne copying the configuration files... && git clone https://github.com/SmellyN3rd/dotfiles && echo done
 cd dotfiles
 
 cp wallpaper.jpg /usr/share/backgrounds/xfce
