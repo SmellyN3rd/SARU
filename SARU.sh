@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu --noconfirm
 pacman -Fy --noconfirm
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
@@ -46,6 +46,5 @@ sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
 cp lightdm-gtk-greeter.conf /etc/lightdm/
-#cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 
 reboot
