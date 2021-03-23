@@ -24,8 +24,6 @@ systemctl enable lightdm &> /dev/null
 
 echo -ne installing sound utilities... && pacman -S --noconfirm alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins pavucontrol &> /dev/null && echo done
 
-echo -ne installing other programs... && pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null && echo done
-
 echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
 
@@ -35,10 +33,12 @@ sudo -u $username tar -xvf yay.tar.gz &> /dev/null
 cd yay
 echo -ne installing yay - the AUR manager... && sudo -u $username makepkg -si --noconfirm &> /dev/null && echo done
 
+echo -ne installing other programs... && pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null && echo done
+
 echo -ne configuring the shell... && chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
 "$(doas -u $username curl -L http://install.ohmyz.sh | doas -u $username sh)" &> /dev/null
-doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null && echo done
+"$(doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions)" &> /dev/null && echo done
 
 echo -ne installing the system theme... && doas -u $username yay -S --noconfirm equilux-theme &> /dev/null && pacman --noconfirm -S papirus-icon-theme &> /dev/null && echo done
 
