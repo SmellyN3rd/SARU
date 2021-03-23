@@ -12,7 +12,7 @@ passwd $username
 
 pacman -Syuu
 pacman -Fy
-pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
+pacman -S --noconfirm xorg xfce4 xfce4-goodies lightdm lightdm-gtk-greeter pavucontrol nano vim zsh zsh-autosuggestions powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
 systemctl enable lightdm
 
 echo permit :wheel > /etc/doas.conf
