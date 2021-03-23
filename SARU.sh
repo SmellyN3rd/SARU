@@ -41,12 +41,7 @@ sudo -u $username mkdir /home/$username/.mozilla/
 sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
-cp lightdm-gtk-greeter.conf /etc/lightdm
-
-echo 'section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-echo '    Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo '    MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo '    Option "XkbLayout" "pl"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-echo 'EndSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+cp lightdm-gtk-greeter.conf /etc/lightdm/
+cp 00-keyboard.conf /etc/X11/xorg.conf.d/
 
 reboot
