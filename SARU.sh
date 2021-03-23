@@ -10,6 +10,8 @@ echo
 echo enter password for the user $username
 passwd $username 
 
+timedatectl set-ntp true
+
 pacman -Syuu --noconfirm
 pacman -Fy --noconfirm
 pacman -S --noconfirm xorg xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter pavucontrol feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox papirus-icon-theme alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins
