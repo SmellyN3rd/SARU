@@ -15,6 +15,7 @@ read -p "enter your username: " username
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
 echo
 echo enter password for the user $username
+echo
 passwd $username 
 echo
 
