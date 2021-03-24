@@ -64,7 +64,7 @@ echo done
 
 echo -ne configuring the shell...
 cd /home/$username
-doas -u $username curl -sL install.ohmyz.sh | sh
+sudo -u $username curl -sL install.ohmyz.sh | sh
 sleep 10
 pacman --noconfirm -S zsh-syntax-highlighting &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
