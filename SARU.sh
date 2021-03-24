@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # this is temporarly needed to bypass sudo when installing yay
-echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+#echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 echo
 read -p "enter your username: " username 
