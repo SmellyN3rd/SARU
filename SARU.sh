@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo permit :wheel nopass > /etc/doas.conf
+echo permit :wheel > /etc/doas.conf
 echo permit root nopass keepenv> /etc/doas.conf
 
 # this is temporarly needed to bypass sudo when installing yay
