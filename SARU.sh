@@ -63,11 +63,11 @@ pacman --noconfirm -S papirus-icon-theme &> /dev/null
 echo done
 
 echo -ne configuring the shell...
-chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
-doas -u $username curl -L http://install.ohmyz.sh | doas -u $username sh &> /dev/null
+doas -u $username sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> /dev/null
 pacman --noconfirm -S zsh-syntax-highlighting &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
+chsh -s /bin/zsh $username &> /dev/null
 echo done
 
 echo -ne setting the keymap...
