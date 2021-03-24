@@ -5,6 +5,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo permit :wheel > /etc/doas.conf
+echo permit nopass keepenv root >> /etc/doas.conf
+
 # this is temporarly needed to bypass sudo when installing yay
 echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
@@ -85,8 +88,6 @@ cp lightdm-gtk-greeter.conf /etc/lightdm/
 echo done
 
 sed -i '$ d' /etc/sudoers
-echo permit :wheel > /etc/doas.conf
-echo permit nopass keepenv root >> /etc/doas.conf
 systemctl enable lightdm &> /dev/null
 
 reboot
