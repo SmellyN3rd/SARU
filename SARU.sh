@@ -64,7 +64,7 @@ echo done
 
 echo -ne configuring the shell...
 cd /home/$username
-doas -u $username curl -LO https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme &> /dev/null
+doas -u $username curl https://raw.githubusercontent.com/agnoster/agnoster-zsh-theme/master/agnoster.zsh-theme > agnoster.zsh-theme
 pacman --noconfirm -S zsh-syntax-highlighting &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
 chsh -s /bin/zsh $username &> /dev/null
