@@ -15,8 +15,8 @@ echo
 
 echo -ne synchronizing time... && timedatectl set-ntp true &> /dev/null && echo done
 
+echo -ne refreshing pacman databases... && pacman -Fy --noconfirm  &> /dev/null && pacman -Syy --noconfirm  &> /dev/null && echo done
 echo -ne updating the system... && pacman -Syuu --noconfirm &> /dev/null && echo done
-echo -ne refreshing pacman databases... && pacman -Fy --noconfirm &> /dev/null && echo done
 
 echo -ne installing the display server... && pacman -S --noconfirm xorg &> /dev/null && echo done
 echo -ne installing the desktop environment... && pacman -S --noconfirm xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter &> /dev/null && echo done
