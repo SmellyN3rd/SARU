@@ -5,6 +5,9 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# this is temporarly needed to bypass sudo when installing yay
+echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+
 echo
 read -p "enter your username: " username 
 useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
@@ -58,7 +61,6 @@ sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
 cp lightdm-gtk-greeter.conf /etc/lightdm/
 
-echo 
-echo everything done. Enjoy the rice
+sed -i '$ d' /etc/sudoers
 
 reboot
