@@ -5,9 +5,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo permit :wheel > /etc/doas.conf
-echo permit root nopass keepenv> /etc/doas.conf
-
 # this is temporarly needed to bypass sudo when installing yay
 echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
@@ -48,13 +45,15 @@ echo done
 echo -ne installing yay - the AUR manager...
 cd /tmp
 curl -sO https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz
-sudo -u $username tar -xvf yay.tar.gz &> /dev/null
+doas -u $username tar -xvf yay.tar.gz &> /dev/null
 cd yay
 sudo -u $username makepkg -si --noconfirm &> /dev/null 
 echo done
 
 echo -ne installing other programs... 
 pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null 
+echo permit :wheel > /etc/doas.conf
+echo permit nopass keepenv root >> /etc/doas.conf
 echo done
 
 echo -ne installing the system theme... 
@@ -63,11 +62,11 @@ pacman --noconfirm -S papirus-icon-theme &> /dev/null
 echo done
 
 echo -ne configuring the shell...
+chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
-sudo -u $username curl -sL install.ohmyz.sh | sh &> /dev/null
+doas -u $username curl -sL install.ohmyz.sh | sh &> /dev/null
 pacman --noconfirm -S zsh-syntax-highlighting &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
-chsh -s /bin/zsh $username &> /dev/null
 echo done
 
 echo -ne setting the keymap...
