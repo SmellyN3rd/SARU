@@ -38,12 +38,12 @@ echo -ne installing yay - the AUR manager... && sudo -u $username makepkg -si --
 
 echo -ne installing other programs... && pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null && echo done
 
+echo -ne installing the system theme... && doas -u $username yay -S --noconfirm equilux-theme &> /dev/null && pacman --noconfirm -S papirus-icon-theme &> /dev/null && echo done
+
 echo -ne configuring the shell... && chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
 doas -u $username curl -sL http://install.ohmyz.sh | doas -u $username sh &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null && echo done
-
-echo -ne installing the system theme... && doas -u $username yay -S --noconfirm equilux-theme &> /dev/null && pacman --noconfirm -S papirus-icon-theme &> /dev/null && echo done
 
 LANG="$(locale | awk -F"[_.]" '/LANG/{print tolower($2)}')"
 echo -ne setting the keymap... && localectl set-x11-keymap $LANG &> /dev/null && echo done
