@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-echo permit :wheel nopass keepenv > /etc/doas.conf
+echo permit :wheel nopass > /etc/doas.conf
 echo permit root nopass keepenv> /etc/doas.conf
 
 # this is temporarly needed to bypass sudo when installing yay
@@ -66,7 +66,7 @@ echo -ne configuring the shell...
 chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
 pacin --noconfirm -S zsh-syntax-highlighting
-doas -u $username $(curl -sL http://install.ohmyz.sh | doas -u $username sh) &> /dev/null
+doas -u $username curl -sL http://install.ohmyz.sh | doas -u $username sh &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
 echo done
 
