@@ -64,7 +64,7 @@ echo done
 
 echo -ne configuring the shell...
 cd /home/$username
-doas -u $username sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> /dev/null
+doas -u $username curl -LO https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh && sh install.sh &> /dev/null
 pacman --noconfirm -S zsh-syntax-highlighting &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
 chsh -s /bin/zsh $username &> /dev/null
