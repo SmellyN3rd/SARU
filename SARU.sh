@@ -6,7 +6,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 # this is temporarly needed to bypass sudo when installing yay
-#echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
+echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 echo
 read -p "enter your username: " username 
@@ -35,7 +35,9 @@ pacman -S --noconfirm xorg &> /dev/null
 echo done
 
 echo -ne installing the desktop environment... 
-pacman -S --noconfirm xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter &> /dev/null 
+pacman -S --noconfirm xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter doas &> /dev/null 
+echo permit :wheel > /etc/doas.conf
+echo permit nopass keepenv root >> /etc/doas.conf
 echo done
 
 echo -ne installing sound utilities... 
@@ -51,9 +53,7 @@ sudo -u $username makepkg -si --noconfirm &> /dev/null
 echo done
 
 echo -ne installing other programs... 
-pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird doas terminator git firefox &> /dev/null 
-echo permit :wheel > /etc/doas.conf
-echo permit nopass keepenv root >> /etc/doas.conf
+pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird terminator git firefox &> /dev/null 
 echo done
 
 echo -ne installing the system theme... 
