@@ -18,7 +18,7 @@ Note that this script is meant to be run on archlinux, so if you're on a diffren
 
 All configuration is stored in my [dotiles](https://github.com/SmellyN3rd/dotfiles) repository
 
-## Programs
+## Included programs
 
 program       | purpose
 ------------- | -------------
