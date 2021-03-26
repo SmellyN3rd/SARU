@@ -48,13 +48,13 @@ cd yay
 sudo -u $username makepkg -si --noconfirm &> /dev/null 
 echo done
 
-echo -ne installing other programs... 
-pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird terminator git firefox &> /dev/null 
-echo done
-
 echo -ne installing the system theme... 
 doas -u $username yay -S --noconfirm equilux-theme &> /dev/null 
 pacman --noconfirm -S papirus-icon-theme &> /dev/null 
+echo done
+
+echo -ne installing remaining programs... 
+pacman -S --noconfirm feh mpv neovim zsh powerline-fonts engrampa thunderbird terminator git firefox &> /dev/null 
 echo done
 
 echo -ne configuring the shell...
