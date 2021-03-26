@@ -30,12 +30,8 @@ echo -ne updating the system...
 pacman -Syuu --noconfirm &> /dev/null 
 echo done
 
-echo -ne installing the display server... 
-pacman -S --noconfirm xorg &> /dev/null 
-echo done
-
 echo -ne installing the desktop environment... 
-pacman -S --noconfirm xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter doas &> /dev/null 
+pacman -S --noconfirm xorg xfce4 xfce4-goodies network-manager-applet lightdm lightdm-gtk-greeter doas &> /dev/null 
 echo permit :wheel > /etc/doas.conf
 echo permit nopass keepenv root >> /etc/doas.conf
 echo done
