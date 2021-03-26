@@ -10,6 +10,10 @@ Note that this script is meant to be run on archlinux, so if you're on a diffren
 
 `curl -LO https://raw.githubusercontent.com/SmellyN3rd/SARU/main/SARU.sh && sh SARU.sh`
 
+## Preview
+![](https://i.imgur.com/AFNjtrz.png)
+![](https://i.imgur.com/xbcKevb.png)
+
 ## Configuration files
 
 All configuration is stored in my [dotiles](https://github.com/SmellyN3rd/dotfiles) repository
