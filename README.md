@@ -2,7 +2,7 @@
 
 ## What is SARU?
 
-SARU is a simple script that automatically installs all needed programs and copies my config to make a complete working archlinux system
+SARU is a simple script that automatically installs all needed programs and copies my configs to make a complete working archlinux system
 
 ## Installation
 
