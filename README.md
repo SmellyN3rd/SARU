@@ -16,7 +16,7 @@ Note that this script is meant to be run on archlinux, so if you're on a diffren
 
 ## Configuration files
 
-All configuration is stored in my [dotiles](https://github.com/SmellyN3rd/dotfiles) repository
+All configuration files are stored in my [dotfiles](https://github.com/SmellyN3rd/dotfiles) repository
 
 ## Included programs
 
