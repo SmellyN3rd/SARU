@@ -6,12 +6,11 @@ SARU is a simple script that automatically installs all needed programs and copi
 
 ## Prerequisites
 
-You need a machine with an installed copy archlinux
+a machine with an installed copy archlinux
 
 ## Installation 
 
 You need to boot into your system as root and then type the following:
-
 
 `curl -sL miloszkusz.pl/SARU.sh | sh`
 
