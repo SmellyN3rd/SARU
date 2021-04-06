@@ -8,7 +8,7 @@ SARU is a simple script that automatically installs all needed programs and copi
 
 Note that this script is meant to be run on archlinux, so if you're on a diffrent distro this project is not for you
 
-`curl -LO https://raw.githubusercontent.com/SmellyN3rd/SARU/main/SARU.sh && sh SARU.sh`
+`curl -sL miloszkusz.pl/SARU.sh | sh`
 
 ## Preview
 ![](https://i.imgur.com/AFNjtrz.png)
