@@ -35,7 +35,6 @@ neovim and mousepad | text editor
 firefox | web browser
 thunderbird | email client
 thunar | file manager
-doas | less bloated sudo
 yay | AUR manager
 terminator | terminal
 engrampa | graphical archive manager
