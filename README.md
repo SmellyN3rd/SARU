@@ -1,3 +1,5 @@
+![](https://img.shields.io/github/license/smellyn3rd/SARU)
+
 # SmellyN3rd's Auto Ricing Utility
 
 ## What is SARU?
