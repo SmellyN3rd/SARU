@@ -17,8 +17,9 @@ You need to boot into your system as root and then type the following:
 `curl -sL miloszkusz.pl/SARU.sh | sh`
 
 ## Preview
-![](https://i.imgur.com/AFNjtrz.png)
-![](https://i.imgur.com/xbcKevb.png)
+![saru1](https://user-images.githubusercontent.com/70511617/115993326-91a29a80-a5d2-11eb-8521-b9ccfcb9c350.png)
+![saru2](https://user-images.githubusercontent.com/70511617/115993331-936c5e00-a5d2-11eb-860a-c51f9455a2ae.png)
+
 
 ## Configuration files
 
