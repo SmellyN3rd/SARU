@@ -30,7 +30,7 @@ pacman -S --noconfirm xorg xfce4 xfce4-artwork xfce4-whiskermenu-plugin xfce4-mp
 echo done
 
 echo -ne installing text editors... 
-pacman -S --noconfirm neovim mousepad &> /dev/null 
+pacman -S --noconfirm nano mousepad &> /dev/null 
 echo done
 
 echo -ne installing sound utilities... 
@@ -107,6 +107,7 @@ sudo -u $username mkdir /home/$username/.mozilla/
 sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
+echo include "/usr/share/nano/*.nanorc" > /home/$username/.nanorc
 cp lightdm-gtk-greeter.conf /etc/lightdm/
 echo done
 
