@@ -108,6 +108,7 @@ sudo -u $username cp -r config/* /home/$username/.config
 sudo -u $username cp -r mozilla/* /home/$username/.mozilla
 sudo -u $username cp  .zshrc /home/$username/
 echo include "/usr/share/nano/*.nanorc" > /home/$username/.nanorc
+sudo -u $username dbus-run-session sh -c "dconf load /org/xfce/mousepad/ < mousepad.conf"
 cp lightdm-gtk-greeter.conf /etc/lightdm/
 echo done
 
