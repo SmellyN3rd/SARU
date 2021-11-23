@@ -34,7 +34,7 @@ pacman -S --noconfirm nano mousepad &> /dev/null
 echo done
 
 echo -ne installing sound utilities... 
-pacman -S --noconfirm alsa-utils pulseaudio lib32-libpulse lib32-alsa-plugins pavucontrol &> /dev/null 
+pacman -S --noconfirm pulseaudio pavucontrol &> /dev/null 
 echo done
 
 echo -ne installing media utilities...
