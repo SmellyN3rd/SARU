@@ -26,7 +26,7 @@ timedatectl set-ntp true &> /dev/null
 echo done
 
 echo -ne installing the desktop environment... 
-pacman -S --noconfirm xorg xfce4 xfce4-artwork xfce4-whiskermenu-plugin xfce4-mpc-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-screenshooter xfce4-battery-plugin xfce4-clipman-plugin xfce4-datetime-plugin network-manager-applet lightdm lightdm-gtk-greeter &> /dev/null 
+pacman -S --noconfirm xorg xfce4 xfce4-whiskermenu-plugin xfce4-mpc-plugin xfce4-notifyd xfce4-pulseaudio-plugin xfce4-screenshooter xfce4-battery-plugin xfce4-clipman-plugin xfce4-datetime-plugin network-manager-applet lightdm lightdm-gtk-greeter &> /dev/null 
 echo done
 
 echo -ne installing text editors... 
@@ -100,6 +100,7 @@ echo -ne copying the configuration files...
 cd /tmp
 git clone https://github.com/SmellyN3rd/dotfiles &> /dev/null 
 cd dotfiles
+mkdir -p /usr/share/backgrounds/xfce
 cp wallpaper.jpg /usr/share/backgrounds/xfce
 sudo -u $username mkdir /home/$username/.config/
 sudo -u $username mkdir /home/$username/.mozilla/
