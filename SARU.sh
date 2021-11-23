@@ -10,7 +10,7 @@ echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 echo
 read -p "enter your username: " username 
-useradd -m -g users -G wheel,storage,power -s /bin/bash $username 
+useradd -m -g users -G wheel,storage,power -s /bin/zsh $username &> /dev/null
 echo
 echo enter password for the user $username
 echo
@@ -86,7 +86,6 @@ echo done
 
 echo -ne configuring the shell...
 pacman -S --noconfirm zsh powerline-fonts zsh-syntax-highlighting &> /dev/null
-chsh -s /bin/zsh $username &> /dev/null
 cd /home/$username
 doas -u $username curl -sL install.ohmyz.sh | doas -u $username sh &> /dev/null
 doas -u $username git clone https://github.com/zsh-users/zsh-autosuggestions /home/$username/.zsh/zsh-autosuggestions &> /dev/null 
